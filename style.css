@@ -58,3 +58,51 @@ input {
   margin-left: auto;
   margin-right: auto;
 }
+
+
+/* image center  */
+/* Center prize details (image and text) */
+/* Center prize details (image and text) */
+#prizeDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Style the prize image */
+#prizeImage {
+    width: 50%; /* Resize the image dynamically based on container width */
+    max-width: 600px; /* Maximum size of the image */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 15px;
+    object-fit: contain; /* Ensures the image fits within the box */
+}
+
+
+
+#authorText {
+    position: fixed; /* Keeps the text fixed on the screen */
+    bottom: 10px; /* Distance from the bottom of the screen */
+    left: 50%; /* Center the text horizontally */
+    transform: translateX(-50%); /* Adjust to ensure proper centering */
+    font-size: 16px; /* Adjust font size */
+    font-weight: bold; /* Bold text */
+    color: #555; /* Gray text color */
+    z-index: 1000; /* Ensure it stays on top of other elements */
+}
+
+
+
+
+
+body {
+    background-image: url('./images/bg\ 2\ .png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    height: 100vh;
+}

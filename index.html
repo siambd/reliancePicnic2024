@@ -3,28 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lottery Website</title>
+    <title>RTP PICNIC 2024</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
 </head>
 <body>
     <!-- Fireworks Canvas -->
     <canvas id="fireworks"></canvas>
+    
+    
+
 
     <div class="container text-center mt-5">
-        <h1>Reliance Trim Park Limited</h1>
-        <h1>Annual Picnic 2024 </h1>
-        <p> Digital Lottery Winner Picker .</p>
-         
+        <h1>RELIANCE TRIM PARK LIMITED </h1>
+        <h3>Annual Picnic 2024</h3>
+        <h5>Digital Lottery system</h5>
+        <p>Prizes start from 20th and go up to the 1st prize!</p>
+        
         <div class="d-flex flex-column align-items-center mb-3">
             <!-- Disabled input boxes with fixed values -->
-            <input type="text" id="min" class="form-control mb-2" value=" Start Ticket Number 1001" disabled style="width: 300px;">
-            <input type="Text" id="max" class="form-control" value=" End Ticket Number 2401" disabled style="width: 300px;">
+            <input type="number" id="min" class="form-control mb-2" value="1001" disabled style="width: 300px;">
+            <input type="number" id="max" class="form-control" value="2401" disabled style="width: 300px;">
         </div>
 
-        <button id="pickAndCountdown" class="btn btn-primary">Click to Select Lucky Person</button>
+        <button id="startLottery" class="btn btn-primary">Start Lottery</button>
         <h2 id="countdown" class="mt-4 d-none"></h2>
-        <button id="revealNumber" class="btn btn-success d-none mt-3">Reveal Winning Number</button>
+        <button id="revealPrize" class="btn btn-success d-none mt-3">Reveal Prize & winning number</button>
         <div id="loading" class="d-none mt-3">
             <div class="spinner-border text-primary" role="status">
                 <span class="visually-hidden">Loading...</span>
@@ -32,11 +36,27 @@
             <p class="mt-2">Calculating the winner...</p>
         </div>
         
-        <h2 class="mt-4">Selected Number: <span id="result">-</span></h2>
+        <h2 class="mt-4">Current Winning <span id="currentPrize">-</span></h2>
+        <h2 class="mt-4">Luckey winning Number: <span id="result">-</span></h2>
     </div>
-   
 
-    <p class="text-center" style="margin-top: 100px;">This site maintain by <strong style="color: crimson;">Asraful</strong> </p>
+
+
+    <!-- prizes  -->
+    <!-- <h2 class="mt-4">Selected Number: <span id="result">-</span></h2> -->
+    <div id="prizeDetails" class="mt-4 d-none">
+        <img id="prizeImage" src="" alt="Prize Image" class="img-fluid prize-image">
+        <p id="prizeText" class="fs-4 fw-bold"></p>
+    </div>
+
+    <!-- author  -->
+    <div id="authorText">Developded by <strong style="color: crimson;">Asraful</strong></div>
+
+
+    
+     <!-- author  -->
+    
+    
 
     <script src="script.js"></script>
 </body>
