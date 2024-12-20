@@ -1,0 +1,205 @@
+animation js 
+
+document.getElementById('revealNumber').addEventListener('click', () => {
+    const revealButton = document.getElementById('revealNumber');
+    const loadingIndicator = document.getElementById('loading');
+
+    // Show loading spinner and hide the reveal button
+    revealButton.classList.add('d-none');
+    loadingIndicator.classList.remove('d-none');
+
+    // Simulate loading time
+    setTimeout(() => {
+        // Hide loading spinner
+        loadingIndicator.classList.add('d-none');
+
+        // Display the winning number
+        document.getElementById('result').textContent = generatedNumber;
+
+        // Reset buttons
+        document.getElementById('pickAndCountdown').classList.remove('d-none');
+    }, 2000); // 2 seconds loading time
+});
+
+
+
+// Initialize Particles.js
+particlesJS('particles-js', {
+    particles: {
+        number: {
+            value: 100,
+            density: {
+                enable: true,
+                value_area: 800,
+            },
+        },
+        color: {
+            value: '#ffffff',
+        },
+        shape: {
+            type: 'circle',
+            stroke: {
+                width: 0,
+                color: '#000000',
+            },
+        },
+        opacity: {
+            value: 0.5,
+            random: false,
+            anim: {
+                enable: false,
+                speed: 1,
+                opacity_min: 0.1,
+                sync: false,
+            },
+        },
+        size: {
+            value: 3,
+            random: true,
+            anim: {
+                enable: false,
+                speed: 40,
+                size_min: 0.1,
+                sync: false,
+            },
+        },
+        line_linked: {
+            enable: true,
+            distance: 150,
+            color: '#ffffff',
+            opacity: 0.4,
+            width: 1,
+        },
+        move: {
+            enable: true,
+            speed: 6,
+            direction: 'none',
+            random: false,
+            straight: false,
+            out_mode: 'out',
+            bounce: false,
+            attract: {
+                enable: false,
+                rotateX: 600,
+                rotateY: 1200,
+            },
+        },
+    },
+    interactivity: {
+        detect_on: 'canvas',
+        events: {
+            onhover: {
+                enable: true,
+                mode: 'repulse',
+            },
+            onclick: {
+                enable: true,
+                mode: 'push',
+            },
+            resize: true,
+        },
+        modes: {
+            grab: {
+                distance: 400,
+                line_linked: {
+                    opacity: 1,
+                },
+            },
+            bubble: {
+                distance: 400,
+                size: 40,
+                duration: 2,
+                opacity: 8,
+                speed: 3,
+            },
+            repulse: {
+                distance: 200,
+                duration: 0.4,
+            },
+            push: {
+                particles_nb: 4,
+            },
+            remove: {
+                particles_nb: 2,
+            },
+        },
+    },
+    retina_detect: true,
+});
+
+
+
+
+// Initialize Particles.js
+particlesJS('particles-js', {
+    particles: {
+        number: {
+            value: 100,
+            density: {
+                enable: true,
+                value_area: 800,
+            },
+        },
+        color: { value: '#ffffff' },
+        shape: {
+            type: 'circle',
+            stroke: { width: 0, color: '#000000' },
+        },
+        opacity: { value: 0.5 },
+        size: { value: 3, random: true },
+        line_linked: {
+            enable: true,
+            distance: 150,
+            color: '#ffffff',
+            opacity: 0.4,
+            width: 1,
+        },
+        move: { enable: true, speed: 6 },
+    },
+    interactivity: {
+        detect_on: 'canvas',
+        events: {
+            onhover: { enable: true, mode: 'repulse' },
+            onclick: { enable: true, mode: 'push' },
+        },
+    },
+    retina_detect: true,
+});
+
+// Fireworks logic
+const canvas = document.getElementById('fireworks');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let fireworks = [];
+
+function createFirework(x, y) {
+    for (let i = 0; i < 50; i++) {
+        fireworks.push({
+            x,
+            y,
+            dx: Math.random() * 4 - 2,
+            dy: Math.random() * 4 - 2,
+            life: 100,
+            color: `hsl(${Math.random() * 360}, 100%, 50%)`,
+        });
+    }
+}
+
+function updateFireworks() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    fireworks.forEach((f, i) => {
+        f.x += f.dx;
+        f.y += f.dy;
+        f.life -= 2;
+
+        ctx.beginPath();
+        ctx.arc(f.x, f.y, 2, 0, Math.PI * 2);
+        ctx.fillStyle = f.color;
+        ctx.fill();
+
+        if (f.life <= 0) fireworks.splice(i, 1);
+    });
+    requestAnimationFrame(updateFireworks);
+}
