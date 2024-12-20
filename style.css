@@ -1,0 +1,19 @@
+body {
+    background-color: #f8f9fa;
+    padding-top: 50px;
+}
+
+.winner-display p {
+    font-size: 2rem;
+    color: #28a745;
+    font-weight: bold;
+    visibility: hidden; /* Initially hidden */
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#spinner {
+    margin-top: 20px;
+}
